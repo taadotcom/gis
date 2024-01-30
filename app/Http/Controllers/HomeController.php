@@ -25,6 +25,11 @@ class HomeController extends Controller
     public function index()
     {
         $cases = DB::table('crimecases')->take(3)->get();
+        $data = [];
+        error_log('count'.count($cases));
+        for ($i = 0; $i < count($cases); $i++) {
+           error_log($cases[$i]->id);
+          }
         return view('home',['cases'=> $cases]);
     }
 }

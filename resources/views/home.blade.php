@@ -20,7 +20,11 @@
             </div>
         </div>
     </div>
-    {{ $cases }}
+    <div class="container">
+        @foreach ($cases as $item)
+            {{ $item->main_charge }}
+        @endforeach
+    </div>
     {{-- <script type="text/javascript" src="https://api.sphere.gistda.or.th/map/?key=3426D75BA27040E7B5C1198055B4389A"></script>
     <script>
         var map
