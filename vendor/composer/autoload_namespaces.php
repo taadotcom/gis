@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'PHPExcel' => array($vendorDir . '/phpoffice/phpexcel/Classes'),
     'Maatwebsite\\Excel\\' => array($vendorDir . '/maatwebsite/excel/src'),
+    'GeoJson\\' => array($vendorDir . '/jmikola/geojson/src'),
 );

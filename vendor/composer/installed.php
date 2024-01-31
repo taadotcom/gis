@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'a68f3a9975683dee2534aec53567f4b056aace8c',
+        'reference' => 'b52b26667a2248a89afb051388033e309ef74558',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -376,6 +376,15 @@
                 0 => 'v9.52.16',
             ),
         ),
+        'jmikola/geojson' => array(
+            'pretty_version' => 'v1.0.0',
+            'version' => '1.0.0.0',
+            'reference' => '8ff29f87748849de7b0cb59ca9aef6d15e48ed24',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jmikola/geojson',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'kodova/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
@@ -394,7 +403,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'a68f3a9975683dee2534aec53567f4b056aace8c',
+            'reference' => 'b52b26667a2248a89afb051388033e309ef74558',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

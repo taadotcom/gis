@@ -555,6 +555,13 @@ class ComposerStaticInitfe33f98a750b8c5a51b30c78bd3fab21
                 0 => __DIR__ . '/..' . '/maatwebsite/excel/src',
             ),
         ),
+        'G' => 
+        array (
+            'GeoJson\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/jmikola/geojson/src',
+            ),
+        ),
     );
 
     public static $classMap = array (
@@ -1415,6 +1422,25 @@ class ComposerStaticInitfe33f98a750b8c5a51b30c78bd3fab21
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/ValidGenerator.php',
         'Fruitcake\\Cors\\CorsService' => __DIR__ . '/..' . '/fruitcake/php-cors/src/CorsService.php',
         'Fruitcake\\Cors\\Exceptions\\InvalidOptionException' => __DIR__ . '/..' . '/fruitcake/php-cors/src/Exceptions/InvalidOptionException.php',
+        'GeoJson\\BoundingBox' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/BoundingBox.php',
+        'GeoJson\\CoordinateReferenceSystem\\CoordinateReferenceSystem' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/CoordinateReferenceSystem/CoordinateReferenceSystem.php',
+        'GeoJson\\CoordinateReferenceSystem\\Linked' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/CoordinateReferenceSystem/Linked.php',
+        'GeoJson\\CoordinateReferenceSystem\\Named' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/CoordinateReferenceSystem/Named.php',
+        'GeoJson\\Exception\\Exception' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/Exception/Exception.php',
+        'GeoJson\\Exception\\UnserializationException' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/Exception/UnserializationException.php',
+        'GeoJson\\Feature\\Feature' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/Feature/Feature.php',
+        'GeoJson\\Feature\\FeatureCollection' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/Feature/FeatureCollection.php',
+        'GeoJson\\GeoJson' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/GeoJson.php',
+        'GeoJson\\Geometry\\Geometry' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/Geometry/Geometry.php',
+        'GeoJson\\Geometry\\GeometryCollection' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/Geometry/GeometryCollection.php',
+        'GeoJson\\Geometry\\LineString' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/Geometry/LineString.php',
+        'GeoJson\\Geometry\\LinearRing' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/Geometry/LinearRing.php',
+        'GeoJson\\Geometry\\MultiLineString' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/Geometry/MultiLineString.php',
+        'GeoJson\\Geometry\\MultiPoint' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/Geometry/MultiPoint.php',
+        'GeoJson\\Geometry\\MultiPolygon' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/Geometry/MultiPolygon.php',
+        'GeoJson\\Geometry\\Point' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/Geometry/Point.php',
+        'GeoJson\\Geometry\\Polygon' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/Geometry/Polygon.php',
+        'GeoJson\\JsonUnserializable' => __DIR__ . '/..' . '/jmikola/geojson/src/GeoJson/JsonUnserializable.php',
         'GrahamCampbell\\ResultType\\Error' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Error.php',
         'GrahamCampbell\\ResultType\\Result' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Result.php',
         'GrahamCampbell\\ResultType\\Success' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Success.php',
@@ -2741,6 +2767,7 @@ class ComposerStaticInitfe33f98a750b8c5a51b30c78bd3fab21
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'JsonSerializable' => __DIR__ . '/..' . '/jmikola/geojson/stubs/JsonSerializable.php',
         'Laravel\\Sail\\Console\\AddCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/AddCommand.php',
         'Laravel\\Sail\\Console\\Concerns\\InteractsWithDockerComposeServices' => __DIR__ . '/..' . '/laravel/sail/src/Console/Concerns/InteractsWithDockerComposeServices.php',
         'Laravel\\Sail\\Console\\InstallCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/InstallCommand.php',
