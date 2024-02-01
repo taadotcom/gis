@@ -26,11 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cases = DB::table('crimecases')->get();
+        $cases = DB::table('crimecases')->take(3)->get();
         $crs = new \GeoJson\CoordinateReferenceSystem\Named('urn:ogc:def:crs:OGC:1.3:CRS84');
         $geojson = array(
             'type' => 'FeatureCollection',
-            'crs' => $crs,
             'features'  => array()
         );
         for ($i = 0; $i < count($cases); $i++) {
@@ -39,34 +38,19 @@ class HomeController extends Controller
                 'type' => 'Feature',
                 "properties" => array(
                     'id' => $cases[$i]->id,
-                    "mag" => 1,
                     "time" => 1704446963054,
                 ),
                 'geometry' => array(
                     'type' => 'Point',
                     # Pass Longitude and Latitude Columns here
-                    'coordinates' => array((float) $cases[$i]->lat, (float)$cases[$i]->long)
+                    'coordinates' => array((float) $cases[$i]->lon, (float)$cases[$i]->lat)
                 )
             );
             array_push($geojson['features'], $feature);
         }
         // dd(json_encode($geojson));
-        // error_log(json_encode($geojson));
-        return view('home')->with(['geojson' => $geojson]);;
+        error_log(isset($geojson));
+        error_log(json_encode($geojson));
+        return view('home')->with(['geojson' => json_encode($geojson)]);;
     }
 }
-
-// {
-//     "type": "Feature",
-//     "geometry": {
-//       "type": "Point",
-//       "coordinates": [125.6, 10.1]
-//     },
-//     "properties": {
-//       "name": "Dinagat Islands"
-//     }
-//   }
-
-// {"type": "Feature",  
-//     "properties": { "id": "1","case_id": "1","case_type":" ลักทรัพย์","sufferer": "คนไทย","success": "สำเร็จ","mag": 1, "time":1704413268712},
-//     "geometry": {"type": "Point","coordinates": [100.582690,13.7674600]} },

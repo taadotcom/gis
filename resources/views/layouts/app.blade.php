@@ -94,7 +94,7 @@
         </main>
     </div>
 
-    <div id="map" style="height: 100%;">
+    <div class="container" id="map" style="height: 100%;">
 
     </div>
 </body>
