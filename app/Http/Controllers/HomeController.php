@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cases = DB::table('crimecases')->take(3)->get();
+        $cases = DB::table('crimecases')->get();
         $crs = new \GeoJson\CoordinateReferenceSystem\Named('urn:ogc:def:crs:OGC:1.3:CRS84');
         $geojson = array(
             'type' => 'FeatureCollection',
