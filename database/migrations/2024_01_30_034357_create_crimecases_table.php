@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('incident_place');
             $table->decimal('lat',12,5);
             $table->decimal('lon',12,5);
-            $table->string('4case_type');
+            $table->string('case_type');
             // $table->timestamps();
         });
     }

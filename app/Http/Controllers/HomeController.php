@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cases = DB::table('crimecases')->get();
+        $cases = DB::table('crimecases')->take(3)->get();
         $crs = new \GeoJson\CoordinateReferenceSystem\Named('urn:ogc:def:crs:OGC:1.3:CRS84');
         $geojson = array(
             'type' => 'FeatureCollection',
@@ -38,7 +38,11 @@ class HomeController extends Controller
                 'type' => 'Feature',
                 "properties" => array(
                     'id' => $cases[$i]->id,
-                    "time" => 1704446963054,
+                    "main_charge" => $cases[$i]->main_charge,
+                    'incident_date' =>$cases[$i]->incident_date ,
+                    'incident_place' => $cases[$i]->incident_place,
+                    'incident_point'=>$cases[$i]->incident_point,
+                    '4case_type' => $cases[$i]->case_type,
                 ),
                 'geometry' => array(
                     'type' => 'Point',
@@ -48,9 +52,9 @@ class HomeController extends Controller
             );
             array_push($geojson['features'], $feature);
         }
-        // dd(json_encode($geojson));
-        error_log(isset($geojson));
-        error_log(json_encode($geojson));
-        return view('home')->with(['geojson' => json_encode($geojson)]);;
+        // dd($geojson);
+        // error_log(isset($geojson));
+        // error_log(json_encode($geojson));
+        return view('home')->with(['geojson' => $geojson]);;
     }
 }

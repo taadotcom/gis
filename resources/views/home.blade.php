@@ -43,7 +43,7 @@
                                     sources: {
                                         earthquakes: {
                                             type: "geojson",
-                                            data: {!! $geojson !!},
+                                            data: {!! json_encode($geojson) !!},
                                         },
                                     },
                                     layers: [{
@@ -124,6 +124,17 @@
                     );
                 }
             </script>
+
+
+            <script>
+                @foreach ($geojson['features'] as $item)
+                    console.log({
+                        !$item!
+                    })
+                @endforeach
+            </script>
+
+
         </div>
     @endif
 @endsection

@@ -16,6 +16,6 @@ class Crimecase extends Model
         'incident_place',
         'lat',
         'lon',
-        '4case_type'
+        'case_type'
     ];
 }
