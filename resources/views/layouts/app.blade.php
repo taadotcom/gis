@@ -16,27 +16,25 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <style type="text/css">
-        html {
-            height: 100%;
-        }
-
-        body {
-            margin: 0px;
-            height: 100%;
-        }
-    </style>
- 
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
 </head>
 
 
-<body onload="init();">
-    <div id="app">
+<body onload="init();" class="layout-fixed sidebar-expand-lg bg-body-tertiary app-loaded sidebar-collapse">
+
+    <div id="app" class="app-wrapper">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
+
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item"> <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+                            <i class="bi bi-list"></i> </a> </li>
+                </ul>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -89,12 +87,13 @@
             </div>
         </nav>
 
+       
         <main class="py-4">
             @yield('content')
         </main>
     </div>
 
-    <div class="container" id="map" style="height: 100%;">
+
 
     </div>
 </body>

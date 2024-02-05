@@ -1,25 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
-
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        {{ __('You are logged in!') }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     @if (isset($geojson))
         <div>
 
@@ -124,17 +105,107 @@
                     );
                 }
             </script>
-
-
-            <script>
-                @foreach ($geojson['features'] as $item)
-                    console.log({
-                        !$item!
-                    })
-                @endforeach
-            </script>
-
-
         </div>
     @endif
+
+    <main class="app-main">
+        <div class="app-content">
+            <div class="container-fluid">
+                <!--begin::Row-->
+                <div class="row">
+                    <!--begin::Col-->
+                    <div class="col-lg-3 col-6">
+                        <!--begin::Small Box Widget 1-->
+                        <div class="small-box text-bg-primary">
+                            <div class="inner">
+                                <h3>150</h3>
+                                <p>คดี</p>
+                            </div> <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path
+                                    d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z">
+                                </path>
+                            </svg> <a href="#"
+                                class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                                ลักทรัพย์ </a>
+                        </div>
+                        <!--end::Small Box Widget 1-->
+                    </div>
+                    <!--end::Col-->
+                    <div class="col-lg-3 col-6">
+                        <!--begin::Small Box Widget 2-->
+                        <div class="small-box text-bg-success">
+                            <div class="inner">
+                                <h3>53<sup class="fs-5"></sup></h3>
+                                <p>คดี</p>
+                            </div><svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path
+                                    d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z">
+                                </path>
+                            </svg> <a href="#"
+                                class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                                วิ่งราวทรัพย์ <i class="bi bi-link-45deg"></i> </a>
+                        </div>
+                        <!--end::Small Box Widget 2-->
+                    </div>
+                    <!--end::Col-->
+                    <div class="col-lg-3 col-6">
+                        <!--begin::Small Box Widget 3-->
+                        <div class="small-box text-bg-warning">
+                            <div class="inner">
+                                <h3>44</h3>
+                                <p>คดี</p>
+                            </div> <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path
+                                    d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z">
+                                </path>
+                            </svg><a href="#"
+                                class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
+                                ชิงทรัพย์ <i class="bi bi-link-45deg"></i> </a>
+                        </div>
+                        <!--end::Small Box Widget 3-->
+                    </div>
+                    <!--end::Col-->
+                    <div class="col-lg-3 col-6">
+                        <!--begin::Small Box Widget 4-->
+                        <div class="small-box text-bg-danger">
+                            <div class="inner">
+                                <h3>65</h3>
+                                <p>คดี</p>
+                            </div> <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path
+                                    d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z">
+                                </path>
+                            </svg> <a href="#"
+                                class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                                ปล้นทรัพย์ <i class="bi bi-link-45deg"></i> </a>
+                        </div>
+                        <!--end::Small Box Widget 4-->
+                    </div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Row-->
+                <!--begin::Row-->
+                <div class="row mt-2"> <!-- Start col -->
+                    <div class="col-lg-12 connectedSortable">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">แผนที่ </h3>
+                            </div>
+                            <div class=" card container" id="map" style="    width: 100%;  height: 700px;">
+
+                            </div>
+                        </div>
+
+                        <div class="row"> <!-- Start col -->
+
+
+
+                        </div> <!-- /.row (main row) -->
+                    </div> <!--end::Container-->
+                </div> <!--end::App Content-->
+    </main>
 @endsection
