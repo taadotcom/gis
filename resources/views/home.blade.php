@@ -118,7 +118,7 @@
                         <!--begin::Small Box Widget 1-->
                         <div class="small-box text-bg-primary">
                             <div class="inner">
-                                <h3>150</h3>
+                                <h3>{{ $count_2_1 }}</h3>
                                 <p>คดี</p>
                             </div> <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -127,7 +127,7 @@
                                 </path>
                             </svg> <a href="#"
                                 class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                                ลักทรัพย์ </a>
+                                ปล้นทรัพย์ </a>
                         </div>
                         <!--end::Small Box Widget 1-->
                     </div>
@@ -136,7 +136,7 @@
                         <!--begin::Small Box Widget 2-->
                         <div class="small-box text-bg-success">
                             <div class="inner">
-                                <h3>53<sup class="fs-5"></sup></h3>
+                                <h3>{{ $count_2_2 }}<sup class="fs-5"></sup></h3>
                                 <p>คดี</p>
                             </div><svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -145,7 +145,7 @@
                                 </path>
                             </svg> <a href="#"
                                 class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                                วิ่งราวทรัพย์ <i class="bi bi-link-45deg"></i> </a>
+                                ชิงทรัพย์ <i class="bi bi-link-45deg"></i> </a>
                         </div>
                         <!--end::Small Box Widget 2-->
                     </div>
@@ -154,7 +154,7 @@
                         <!--begin::Small Box Widget 3-->
                         <div class="small-box text-bg-warning">
                             <div class="inner">
-                                <h3>44</h3>
+                                <h3>{{ $count_2_3 }}</h3>
                                 <p>คดี</p>
                             </div> <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -163,7 +163,7 @@
                                 </path>
                             </svg><a href="#"
                                 class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
-                                ชิงทรัพย์ <i class="bi bi-link-45deg"></i> </a>
+                                วิ่งราวทรัพย์ <i class="bi bi-link-45deg"></i> </a>
                         </div>
                         <!--end::Small Box Widget 3-->
                     </div>
@@ -172,7 +172,7 @@
                         <!--begin::Small Box Widget 4-->
                         <div class="small-box text-bg-danger">
                             <div class="inner">
-                                <h3>65</h3>
+                                <h3>{{ $count_2_4 }}</h3>
                                 <p>คดี</p>
                             </div> <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -181,7 +181,7 @@
                                 </path>
                             </svg> <a href="#"
                                 class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                                ปล้นทรัพย์ <i class="bi bi-link-45deg"></i> </a>
+                                ลักทรัพย์ <i class="bi bi-link-45deg"></i> </a>
                         </div>
                         <!--end::Small Box Widget 4-->
                     </div>

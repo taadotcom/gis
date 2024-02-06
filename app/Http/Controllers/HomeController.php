@@ -26,8 +26,24 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cases = DB::table('crimecases')->take(3)->get();
-        $crs = new \GeoJson\CoordinateReferenceSystem\Named('urn:ogc:def:crs:OGC:1.3:CRS84');
+        $cases = DB::table('crimecases')->get();
+
+        $count_2_1 = 0;
+        $count_2_2 = 0;
+        $count_2_3 = 0;
+        $count_2_4 = 0;
+        foreach ($cases as $item) {
+            if (str_contains($item->case_type, '2.1')) {
+                $count_2_1++;
+            } elseif (str_contains($item->case_type, '2.2')) {
+                $count_2_2++;
+            } elseif (str_contains($item->case_type, '2.3')) {
+                $count_2_3++;
+            } elseif (str_contains($item->case_type, '2.4')) {
+                $count_2_4++;
+            }
+        }
+        error_log($count_2_1 . '/ ' .  $count_2_2 . ' /' .  $count_2_3 . '/ ' .  $count_2_4);
         $geojson = array(
             'type' => 'FeatureCollection',
             'features'  => array()
@@ -39,9 +55,9 @@ class HomeController extends Controller
                 "properties" => array(
                     'id' => $cases[$i]->id,
                     "main_charge" => $cases[$i]->main_charge,
-                    'incident_date' =>$cases[$i]->incident_date ,
+                    'incident_date' => $cases[$i]->incident_date,
                     'incident_place' => $cases[$i]->incident_place,
-                    'incident_point'=>$cases[$i]->incident_point,
+                    'incident_point' => $cases[$i]->incident_point,
                     '4case_type' => $cases[$i]->case_type,
                 ),
                 'geometry' => array(
@@ -52,9 +68,12 @@ class HomeController extends Controller
             );
             array_push($geojson['features'], $feature);
         }
-        // dd($geojson);
-        // error_log(isset($geojson));
-        // error_log(json_encode($geojson));
-        return view('home')->with(['geojson' => $geojson]);;
+        return view('home')->with([
+            'geojson' => $geojson,
+            'count_2_1' => $count_2_1,
+            'count_2_2' => $count_2_2,
+            'count_2_3' => $count_2_3,
+            'count_2_4' => $count_2_4
+        ]);;
     }
 }

@@ -31,10 +31,6 @@
                     {{ config('app.name', 'Laravel') }}
                 </a>
 
-                <ul class="navbar-nav">
-                    <li class="nav-item"> <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
-                            <i class="bi bi-list"></i> </a> </li>
-                </ul>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
