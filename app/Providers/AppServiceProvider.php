@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // $this.
+        // return base_path('public_html');
     }
 
     /**
