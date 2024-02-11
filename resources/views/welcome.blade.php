@@ -8,11 +8,14 @@
     <title>Laravel</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun&display=swap" rel="stylesheet">
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <style>
         body {
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Sarabun', sans-serif;
         }
     </style>
 </head>
@@ -20,11 +23,11 @@
 <body>
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center">
-            <h1 class="logo me-auto"><a href="index.html">Arsha</a></h1>
+            <h1 class="logo me-auto"><a href="index.html">กลุ่มงานสารสนเทศภูมิศาสตร์และสื่อประสมเพื่อการบริหาร </a></h1>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">About</a></li>
+                    <li><a class="nav-link scrollto active" >Home</a></li>
+                    {{-- <li><a class="nav-link scrollto" href="#about">About</a></li>
                     <li><a class="nav-link scrollto" href="#services">Services</a></li>
                     <li><a class="nav-link   scrollto" href="#portfolio">Portfolio</a></li>
                     <li><a class="nav-link scrollto" href="#team">Team</a></li>
@@ -46,8 +49,8 @@
                             <li><a href="#">Drop Down 4</a></li>
                         </ul>
                     </li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li> --}}
+                    <li><a class="getstarted scrollto" href="/login">Login</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -62,21 +65,22 @@
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
                     data-aos="fade-up" data-aos-delay="200">
-                    <h1>Better Solutions For Your Business</h1>
-                    <h2>We are team of talented designers making websites with Bootstrap</h2>
+                    <h1>กลุ่มงานสารสนเทศภูมิศาสตร์และสื่อประสมเพื่อการบริหาร</h1>
+                    <h2>ศูนย์เทคโนโลยีสารสนเทศกลาง</h2>
                     <div class="d-flex justify-content-center justify-content-lg-start">
-                        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                        {{-- <a href="#about" class="btn-get-started scrollto">Get Started</a>
                         <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i
-                                class="bi bi-play-circle"></i><span>Watch Video</span></a>
+                                class="bi bi-play-circle"></i><span>Watch Video</span></a> --}}
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="{{ asset('img/hero-img.png') }}" class="img-fluid animated" alt="">
+                    <img src={{ asset('/img/hero-img.png') }} class="img-fluid animated" alt="">
                 </div>
             </div>
         </div>
 
     </section><!-- End Hero -->
+
 </body>
 
 </html>
