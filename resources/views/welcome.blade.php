@@ -5,12 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>กลุ่มงานสารสนเทศภูมิศาสตร์และสื่อประสมเพื่อการบริหาร ศทก.</title>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Sarabun' rel='stylesheet'>
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <style>
@@ -23,10 +21,10 @@
 <body>
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center">
-            <h1 class="logo me-auto"><a href="index.html">กลุ่มงานสารสนเทศภูมิศาสตร์และสื่อประสมเพื่อการบริหาร </a></h1>
+            <h1 class="logo me-auto"></h1>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" >Home</a></li>
+                    <li><a class="nav-link scrollto active">Home</a></li>
                     {{-- <li><a class="nav-link scrollto" href="#about">About</a></li>
                     <li><a class="nav-link scrollto" href="#services">Services</a></li>
                     <li><a class="nav-link   scrollto" href="#portfolio">Portfolio</a></li>
@@ -74,13 +72,50 @@
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-                    <img src={{ asset('/img/hero-img.png') }} class="img-fluid animated" alt="">
+                    <img src={{ asset('/img/citc-logo.png') }} class="img-fluid animated" alt="">
                 </div>
             </div>
         </div>
 
     </section><!-- End Hero -->
 
+    <section id="clients" class="clients section-bg">
+        <div class="container">
+            <div class="row" data-aos="zoom-in">
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+                    style="width: 50%;">
+                    <a href="https://www.royalthaipolice.go.th/">
+                        <img src={{ asset('/img/clients/client-1.png') }} class="img-fluid" alt="">
+                    </a>
+
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+                    style="width: 50%;">
+                    <a href="https://www.crimespolice.com/portal/">
+                        <img src={{ asset('/img/clients/client-2.png') }} class="img-fluid" alt="">
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container footer-bottom clearfix">
+            <div class="copyright">
+                &copy; สงวนลิขสิทธิ์ <span>กลุ่มงานสารสนเทศภูมิศาสตร์และสื่อประสมเพื่อการบริหาร</span>
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
