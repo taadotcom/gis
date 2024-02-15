@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             'name'     => 'Admin',
             'username'     => 'admin',
             'email'    => 'gisdev.rtp@gmail.com',
-            'password' => bcrypt('gisP@SsW0rd2024'),
+            'password' => bcrypt('12345678'),
         ]);
 
     }
