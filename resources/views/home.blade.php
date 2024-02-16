@@ -112,7 +112,7 @@
         <div class="app-content">
             <div class="container-fluid">
                 <!--begin::Row-->
-                <div class="row">
+                {{-- <div class="row">
                     <!--begin::Col-->
                     <div class="col-lg-3 col-6">
                         <!--begin::Small Box Widget 1-->
@@ -186,9 +186,11 @@
                         <!--end::Small Box Widget 4-->
                     </div>
                     <!--end::Col-->
-                </div>
+                </div> --}}
                 <!--end::Row-->
                 <!--begin::Row-->
+
+                @include('infobox')
                 <div class="row mt-2"> <!-- Start col -->
                     <div class="col-lg-12 connectedSortable">
                         <div class="card">
@@ -207,5 +209,6 @@
                         </div> <!-- /.row (main row) -->
                     </div> <!--end::Container-->
                 </div> <!--end::App Content-->
+            </div>
     </main>
 @endsection
