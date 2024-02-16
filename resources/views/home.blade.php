@@ -190,7 +190,7 @@
                 <!--end::Row-->
                 <!--begin::Row-->
 
-                @include('infobox')
+                @include('infobox',)
                 <div class="row mt-2"> <!-- Start col -->
                     <div class="col-lg-12 connectedSortable">
                         <div class="card">

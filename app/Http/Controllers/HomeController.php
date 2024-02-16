@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Crimecase;
+use App\Models\Organization;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use stdClass;
@@ -27,7 +28,6 @@ class HomeController extends Controller
     public function index()
     {
         $cases = DB::table('crimecases')->get();
-
         $count_2_1 = 0;
         $count_2_2 = 0;
         $count_2_3 = 0;
@@ -73,7 +73,8 @@ class HomeController extends Controller
             'count_2_1' => $count_2_1,
             'count_2_2' => $count_2_2,
             'count_2_3' => $count_2_3,
-            'count_2_4' => $count_2_4
+            'count_2_4' => $count_2_4,
+            'div' => Organization::where('division_code' ,'=','20136')->get()
         ]);;
     }
 }
