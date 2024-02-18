@@ -70,11 +70,11 @@ class HomeController extends Controller
         }
         return view('home')->with([
             'geojson' => $geojson,
-            'count_2_1' => $count_2_1,
-            'count_2_2' => $count_2_2,
-            'count_2_3' => $count_2_3,
-            'count_2_4' => $count_2_4,
-            'div' => Organization::where('division_code' ,'=','20136')->get()
+            // 'count_2_1' => $count_2_1,
+            // 'count_2_2' => $count_2_2,
+            // 'count_2_3' => $count_2_3,
+            // 'count_2_4' => $count_2_4,
+            'org' => Organization::where('division_code' ,'=','20136')->get()
         ]);;
     }
 }

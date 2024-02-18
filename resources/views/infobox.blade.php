@@ -29,9 +29,10 @@
                                 <span class="visually-hidden label_th">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item label_th" href="#">บก.1</a></li>
-                                <li> <a class="dropdown-item label_th" href="#">บก.2</a> </li>
-                                <li> <a class="dropdown-item label_th" href="#">บก.3</a> </li>
+                                @foreach ($org as $item)
+                                    <li><a class="dropdown-item label_th"
+                                            href="#">{{ $item->division_abv_name }}</a></li>
+                                @endforeach
                                 <li>
                                     <hr class="dropdown-divider label_th">
                                 </li>
@@ -48,9 +49,10 @@
                                 <span class="visually-hidden label_th">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item label_th" href="#">สถานี1</a></li>
-                                <li> <a class="dropdown-item label_th" href="#">สถานี2</a> </li>
-                                <li> <a class="dropdown-item label_th" href="#">สถานี3</a> </li>
+                                @foreach ($org as $item)
+                                    <li><a class="dropdown-item label_th" href="#">{{ $item->station_name }}</a>
+                                    </li>
+                                @endforeach
                                 <li>
                                     <hr class="dropdown-divider label_th">
                                 </li>
