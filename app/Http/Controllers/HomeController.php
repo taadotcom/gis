@@ -6,6 +6,7 @@ use App\Models\Crimecase;
 use App\Models\Organization;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use stdClass;
 
 class HomeController extends Controller
@@ -28,22 +29,6 @@ class HomeController extends Controller
     public function index()
     {
         $cases = DB::table('crimecases')->get();
-        $count_2_1 = 0;
-        $count_2_2 = 0;
-        $count_2_3 = 0;
-        $count_2_4 = 0;
-        foreach ($cases as $item) {
-            if (str_contains($item->case_type, '2.1')) {
-                $count_2_1++;
-            } elseif (str_contains($item->case_type, '2.2')) {
-                $count_2_2++;
-            } elseif (str_contains($item->case_type, '2.3')) {
-                $count_2_3++;
-            } elseif (str_contains($item->case_type, '2.4')) {
-                $count_2_4++;
-            }
-        }
-        error_log($count_2_1 . '/ ' .  $count_2_2 . ' /' .  $count_2_3 . '/ ' .  $count_2_4);
         $geojson = array(
             'type' => 'FeatureCollection',
             'features'  => array()
@@ -68,13 +53,18 @@ class HomeController extends Controller
             );
             array_push($geojson['features'], $feature);
         }
+        $policeArea =  $this->getPoliceArea();
+
         return view('home')->with([
             'geojson' => $geojson,
-            // 'count_2_1' => $count_2_1,
-            // 'count_2_2' => $count_2_2,
-            // 'count_2_3' => $count_2_3,
-            // 'count_2_4' => $count_2_4,
-            'org' => Organization::where('division_code' ,'=','20136')->get()
-        ]);;
+            'org' => Organization::where('division_code', '=', '20136')->get(),
+            'policeArea' => json_decode($policeArea)->features,
+        ]);
+    }
+
+    public function getPoliceArea()
+    {
+        $policeArea = Storage::get('map_bkk.geojson');
+        return $policeArea;
     }
 }
