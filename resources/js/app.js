@@ -16,8 +16,8 @@ import { createApp } from "vue";
 
 const app = createApp({});
 AOS.init();
-import ExampleComponent from "./components/ExampleComponent.vue";
-app.component("example-component", ExampleComponent);
+import MapComponent from "./components/MapComponent.vue";
+app.component("map-component", MapComponent);
 
 /**
  * The following block of code may be used to automatically register your

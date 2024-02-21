@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+    <script type="text/javascript" src="https://api.sphere.gistda.or.th/map/?key=3426D75BA27040E7B5C1198055B4389A"></script>
     @if (isset($geojson))
         <div>
 
-            <script type="text/javascript" src="https://api.sphere.gistda.or.th/map/?key=3426D75BA27040E7B5C1198055B4389A"></script>
-            <script>
+
+            {{-- <script>
                 var map
 
                 function init() {
@@ -114,31 +115,16 @@
                     });
 
                 }
-            </script>
+            </script> --}}
         </div>
     @endif
     <main class="app-main">
         <div class="app-content">
             <div class="container-fluid">
                 @include('infobox', ['org' => $org])
-                <div class="row mt-2"> <!-- Start col -->
-                    <div class="col-lg-12 connectedSortable">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">แผนที่ </h3>
-                            </div>
-                            <div class=" card container" id="map" style="    width: 100%;  height: 700px;">
-
-                            </div>
-                        </div>
-
-                        <div class="row"> <!-- Start col -->
-
-
-
-                        </div> <!-- /.row (main row) -->
-                    </div> <!--end::Container-->
-                </div> <!--end::App Content-->
             </div>
     </main>
+
+    <map-component :police-area="'hello world'">
+    </map-component>
 @endsection

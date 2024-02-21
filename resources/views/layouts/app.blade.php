@@ -21,7 +21,7 @@
 </head>
 
 
-<body onload="init();" class="layout-fixed sidebar-expand-lg bg-body-tertiary app-loaded sidebar-collapse">
+<body  class="layout-fixed sidebar-expand-lg bg-body-tertiary app-loaded sidebar-collapse">
 
     <div id="app" class="app-wrapper">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
