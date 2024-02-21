@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Crimecase;
 use App\Models\Organization;
+use App\Models\Station;
+use Dotenv\Parser\Value;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -55,9 +57,13 @@ class HomeController extends Controller
         }
         $policeArea =  $this->getPoliceArea();
 
+        $org = Organization::where('bureau_code', '=', '10008')->select('division_code', 'division_abv_name')->get(); // บช.น.
+        $station = Station::all();
+        // dd($org);
         return view('home')->with([
             'geojson' => $geojson,
-            'org' => Organization::where('division_code', '=', '20136')->get(),
+            'org' => $org,
+            'station' => $station,
             'policeArea' => json_decode($policeArea)->features,
         ]);
     }
