@@ -114,3 +114,22 @@
         <!--end::Body-->
     </form>
     <!--end::Form-->
+
+    <script>
+        // function getStation(selectObject) {
+        //     document.getElementById('station').options.length = 0;
+        //     const value = selectObject.value;  
+        //     const allStation = {!! $station !!};
+        //     const filteredStation = allStation.filter((item) => item.division_code == value);
+        //     let stationName = filteredStation.map((item) => item.station_name);
+        //     const select = document.getElementById("station");
+        //     for (let i = 0; i < stationName.length; i++) {
+        //         let optn = stationName[i];
+        //         let el = document.createElement("option");
+        //         el.textContent = optn;
+        //         el.value = optn;
+        //         select.appendChild(el);
+        //     }
+
+        // }
+    </script>

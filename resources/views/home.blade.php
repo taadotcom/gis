@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <script type="text/javascript" src="https://api.sphere.gistda.or.th/map/?key=3426D75BA27040E7B5C1198055B4389A"></script>
+    
     @if (isset($geojson))
         <div>
 
@@ -124,7 +124,6 @@
                 @include('infobox', ['org' => $org])
             </div>
     </main>
-
-    <map-component :police-area="'hello world'">
+    <map-component :police-area='{!! json_encode($policeArea) !!}'>
     </map-component>
 @endsection
