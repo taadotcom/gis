@@ -102,18 +102,6 @@
 
                     );
 
-                    const area = new Array({!! json_encode($policeArea) !!});
-                    console.log(area);
-                    area[0].forEach((element) => {
-                        map.Event.bind(sphere.EventName.Ready, () => {
-                            const polygon = new sphere.Polygon(element, {
-                                title: element.properties.name,
-                                detail: element.properties.name
-                            });
-                            map.Overlays.add(polygon);
-                        });
-                    });
-
                 }
             </script> --}}
         </div>
@@ -124,6 +112,6 @@
                 @include('infobox', ['org' => $org])
             </div>
     </main>
-    <map-component :police-area='{!! json_encode($policeArea) !!}'>
+    <map-component :police-area='{!! json_encode($policeArea) !!}' :crimes-case='{!! json_encode($geojson) !!}'>
     </map-component>
 @endsection

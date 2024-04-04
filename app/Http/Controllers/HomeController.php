@@ -6,6 +6,7 @@ use App\Models\Crimecase;
 use App\Models\Organization;
 use App\Models\Station;
 use Dotenv\Parser\Value;
+use Error;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -30,29 +31,31 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cases = DB::table('crimecases')->get();
+        $cases = DB::table('crimescase3m')->get();
         $geojson = array(
             'type' => 'FeatureCollection',
             'features'  => array()
         );
         for ($i = 0; $i < count($cases); $i++) {
+            $coordinates = explode(" ", substr($cases[$i]->geom, 7, -1));
             $feature = array(
                 // 
                 'type' => 'Feature',
                 "properties" => array(
                     'id' => $cases[$i]->id,
-                    "main_charge" => $cases[$i]->main_charge,
-                    'incident_date' => $cases[$i]->incident_date,
-                    'incident_place' => $cases[$i]->incident_place,
-                    'incident_point' => $cases[$i]->incident_point,
-                    '4case_type' => $cases[$i]->case_type,
+                    "charge" => $cases[$i]->charge,
+                    // 'incident_date' => $cases[$i]->incident_date,
+                    // 'incident_place' => $cases[$i]->incident_place,
+                    // 'incident_point' => $cases[$i]->incident_point,
+                    // '4case_type' => $cases[$i]->case_type,
                 ),
                 'geometry' => array(
                     'type' => 'Point',
                     # Pass Longitude and Latitude Columns here
-                    'coordinates' => array((float) $cases[$i]->lon, (float)$cases[$i]->lat)
+                    'coordinates' => [(float)$coordinates[0], (float)$coordinates[1]]
                 )
             );
+            // dd($feature);
             array_push($geojson['features'], $feature);
         }
         $policeArea =  $this->getPoliceArea();
@@ -70,7 +73,7 @@ class HomeController extends Controller
 
     public function getPoliceArea()
     {
-        $policeArea = Storage::get('map_bkk.geojson');
+        $policeArea = Storage::get('phuket.geojson');
         return $policeArea;
     }
 }
