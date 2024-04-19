@@ -17,8 +17,12 @@ import { createApp } from "vue";
 const app = createApp({});
 AOS.init();
 import MapComponent from "./components/MapComponent.vue";
-app.component("map-component", MapComponent);
+import FileComponent from "./components/FileComponent.vue";
+import ControlPanelComponent from "./components/ControlPanelComponent.vue"
 
+app.component("map-component", MapComponent);
+app.component("file-component", FileComponent);
+app.component("controlpanel-component", ControlPanelComponent);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

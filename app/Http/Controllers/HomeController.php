@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Crimecase;
+
 use App\Models\Organization;
 use App\Models\Station;
-use Dotenv\Parser\Value;
-use Error;
-use Illuminate\Support\Arr;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use stdClass;
+
 
 class HomeController extends Controller
 {
@@ -32,6 +32,7 @@ class HomeController extends Controller
     public function index()
     {
         $cases = DB::table('crimescase3m')->get();
+        // $cases = Crimescase3m::all();
         $geojson = array(
             'type' => 'FeatureCollection',
             'features'  => array()
@@ -55,19 +56,19 @@ class HomeController extends Controller
                     'coordinates' => [(float)$coordinates[0], (float)$coordinates[1]]
                 )
             );
-            // dd($feature);
             array_push($geojson['features'], $feature);
         }
         $policeArea =  $this->getPoliceArea();
 
         $org = Organization::where('bureau_code', '=', '10008')->select('division_code', 'division_abv_name')->get(); // บช.น.
         $station = Station::all();
-        // dd($org);
+        $files = $this->getFiles();
         return view('home')->with([
             'geojson' => $geojson,
             'org' => $org,
             'station' => $station,
             'policeArea' => json_decode($policeArea)->features,
+            'files' =>  $files
         ]);
     }
 
@@ -75,5 +76,40 @@ class HomeController extends Controller
     {
         $policeArea = Storage::get('phuket.geojson');
         return $policeArea;
+    }
+
+    public function getFiles()
+    {
+        $files = Storage::allFiles('docs');
+        return $files;
+    }
+
+    public function show($fileName)
+    {
+        // dd($id);
+
+        if (isset($fileName)) {
+            return Storage::download('/docs/' . $fileName);
+        }
+        // dd($contents);
+        // return response($contents, 200, ['']);
+    }
+
+    public function storeFile(Request $request)
+    {
+        $request->validate([
+            'type' => 'required',
+            // 'fileUpload' => 'required|mimes:png,jpg,jpeg,'
+        ]);
+        $path = $request->file('fileUpload')->store('docs');
+        if ($path) {
+            return redirect('/admin');
+        } else {
+            return App::abort(500, 'Some Error');
+        }
+    }
+
+    public function getCaseByType(Request $request) {
+        
     }
 }
