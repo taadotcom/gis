@@ -1,8 +1,9 @@
 <template>
+
     <div class="container">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            เพิ่ม
-        </button>
+        <FileUpload ref="fileupload" mode="basic" name="demo[]" url="/files" accept="image/*" :maxFileSize="1000000"
+            @upload="onUpload" />
+        <Button label="Upload" @click="upload" severity="secondary" />
         <table class="table">
             <thead>
                 <tr>
@@ -32,7 +33,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <form @submit.prevent="submit">
                 <div class="modal-content">
@@ -55,11 +56,24 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div> -->
+
+
 </template>
 
-<script>
+<script >
 import { ref } from 'vue'
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+const fileupload = ref();
+
+const upload = () => {
+    fileupload.value.upload();
+};
+
+const onUpload = () => {
+    toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+};
 export default {
     props: ['fileName'],
     mounted() {
@@ -80,11 +94,15 @@ export default {
         },
         submit() {
             if (this.$refs.file.value) {
+                console.log(this.$refs.file.value);
                 this.$emit("file", this.$refs.file.value)
             }
-            // console.log(this.$emit('submit', this.form));
+            console.log(this.$emit('submit', this.form));
             // // this.$emit('submit', this.email)
             // this.$emit('submit', this.form);
+        },
+        onUpload() {
+            console.log(this.$refs.file.value);
         }
     }
 }

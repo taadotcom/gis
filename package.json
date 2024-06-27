@@ -19,7 +19,9 @@
         "vue": "^3.2.37"
     },
     "dependencies": {
+        "@primevue/themes": "^4.0.0-rc.2",
         "aos": "^2.3.4",
-        "glightbox": "^3.2.0"
+        "glightbox": "^3.2.0",
+        "primevue": "^4.0.0-rc.2"
     }
 }

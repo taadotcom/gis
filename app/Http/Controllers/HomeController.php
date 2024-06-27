@@ -31,45 +31,46 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cases = DB::table('crimescase3m')->get();
-        // $cases = Crimescase3m::all();
-        $geojson = array(
-            'type' => 'FeatureCollection',
-            'features'  => array()
-        );
-        for ($i = 0; $i < count($cases); $i++) {
-            $coordinates = explode(" ", substr($cases[$i]->geom, 7, -1));
-            $feature = array(
-                // 
-                'type' => 'Feature',
-                "properties" => array(
-                    'id' => $cases[$i]->id,
-                    "charge" => $cases[$i]->charge,
-                    // 'incident_date' => $cases[$i]->incident_date,
-                    // 'incident_place' => $cases[$i]->incident_place,
-                    // 'incident_point' => $cases[$i]->incident_point,
-                    // '4case_type' => $cases[$i]->case_type,
-                ),
-                'geometry' => array(
-                    'type' => 'Point',
-                    # Pass Longitude and Latitude Columns here
-                    'coordinates' => [(float)$coordinates[0], (float)$coordinates[1]]
-                )
-            );
-            array_push($geojson['features'], $feature);
-        }
-        $policeArea =  $this->getPoliceArea();
+        // $cases = DB::table('crimescase3m')->get();
+        // // $cases = Crimescase3m::all();
+        // $geojson = array(
+        //     'type' => 'FeatureCollection',
+        //     'features'  => array()
+        // );
+        // for ($i = 0; $i < count($cases); $i++) {
+        //     $coordinates = explode(" ", substr($cases[$i]->geom, 7, -1));
+        //     $feature = array(
+        //         // 
+        //         'type' => 'Feature',
+        //         "properties" => array(
+        //             'id' => $cases[$i]->id,
+        //             "charge" => $cases[$i]->charge,
+        //             // 'incident_date' => $cases[$i]->incident_date,
+        //             // 'incident_place' => $cases[$i]->incident_place,
+        //             // 'incident_point' => $cases[$i]->incident_point,
+        //             // '4case_type' => $cases[$i]->case_type,
+        //         ),
+        //         'geometry' => array(
+        //             'type' => 'Point',
+        //             # Pass Longitude and Latitude Columns here
+        //             'coordinates' => [(float)$coordinates[0], (float)$coordinates[1]]
+        //         )
+        //     );
+        //     array_push($geojson['features'], $feature);
+        // }
+        // $policeArea =  $this->getPoliceArea();
 
-        $org = Organization::where('bureau_code', '=', '10008')->select('division_code', 'division_abv_name')->get(); // บช.น.
-        $station = Station::all();
+        // $org = Organization::where('bureau_code', '=', '10008')->select('division_code', 'division_abv_name')->get(); // บช.น.
+        // $station = Station::all();
         $files = $this->getFiles();
         return view('home')->with([
-            'geojson' => $geojson,
-            'org' => $org,
-            'station' => $station,
-            'policeArea' => json_decode($policeArea)->features,
+            // 'geojson' => $geojson,
+            // 'org' => $org,
+            // 'station' => $station,
+            // 'policeArea' => json_decode($policeArea)->features,
             'files' =>  $files
         ]);
+        // return view('home');
     }
 
     public function getPoliceArea()
@@ -109,7 +110,7 @@ class HomeController extends Controller
         }
     }
 
-    public function getCaseByType(Request $request) {
-        
+    public function getCaseByType(Request $request)
+    {
     }
 }

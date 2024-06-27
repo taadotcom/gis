@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,8 @@ Route::get('/', function () {
 
 
 // Auth::routes();
-Auth::routes(['register' => false]);
+Auth::routes(['register' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/show/{post}',[App\Http\Controllers\HomeController::class, 'show']);
 Route::get('/crimescase',[App\Http\Controllers\HomeController::class, 'getCaseByType']);
+Route::resource('files', FileController::class);

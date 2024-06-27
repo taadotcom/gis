@@ -19,10 +19,22 @@ AOS.init();
 import MapComponent from "./components/MapComponent.vue";
 import FileComponent from "./components/FileComponent.vue";
 import ControlPanelComponent from "./components/ControlPanelComponent.vue"
+import FileUpload from 'primevue/fileupload';
+import Button from "primevue/button";
+import PrimeVue from "primevue/config";
+import Aura from '@primevue/themes/aura';
 
 app.component("map-component", MapComponent);
 app.component("file-component", FileComponent);
 app.component("controlpanel-component", ControlPanelComponent);
+app.component('FileUpload', FileUpload);
+app.component('Button', Button);
+
+app.use(PrimeVue, {
+    theme: {
+        preset: Aura
+    }
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
