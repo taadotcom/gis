@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 
 // Auth::routes();
-Auth::routes(['register' => true]);
+Auth::routes(['register' => false]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/show/{post}',[App\Http\Controllers\HomeController::class, 'show']);
 Route::get('/crimescase',[App\Http\Controllers\HomeController::class, 'getCaseByType']);
