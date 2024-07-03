@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
@@ -36,11 +37,23 @@ class FileController extends Controller
     public function store(Request $request)
     {
         error_log($request);
-        $path = $request->file('fileUpload')->store('docs');
-        if ($path) {
-            return redirect('/admin');
-        } else {
-            return App::abort(500, 'Some Error');
+        try {
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+                $fileName = time() . '.' . $file->getClientOriginalName();
+                error_log($fileName);
+                if ($request->file('file')->storeAs('docs', $fileName)) {
+                    return response()->json([
+                        'message' => 'File uplpaded successfully!'
+                    ]);
+                } else {
+                    throw new \Exception("Error Processing Request", 1);
+                }
+            }
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage()
+            ]);
         }
     }
 
@@ -50,9 +63,26 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($fileName)
     {
-        //
+        $file = storage_path('app/docs/') . $fileName;
+        error_log($file);
+        $headers = [
+            'Content-Type' => 'application/pdf'
+        ];
+        if (file_exists($file)) {
+            return response()->file($file, $headers);
+        } else {
+            abort(404, 'File not found!');
+        }
+    }
+
+    public function download($fileName)
+    {
+        error_log($fileName);
+        if (isset($fileName)) {
+            return Storage::download('/docs/' . $fileName);
+        }
     }
 
     /**
@@ -84,8 +114,21 @@ class FileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($fileName)
     {
         //
+    }
+
+    public function delete(Request $request)
+    {
+        error_log($request->filename);
+        if (isset($request->filename)) {
+            $deleted =  Storage::delete('/docs/' . $request->filename);
+            if ($deleted) {
+                response()->json(['status' => 'success'], 200);
+            } else {
+                response()->json(['status' => 'fail'], 500);
+            }
+        }
     }
 }

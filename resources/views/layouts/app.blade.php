@@ -16,13 +16,11 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <script type="text/javascript" src="https://api.sphere.gistda.or.th/map/?key=3426D75BA27040E7B5C1198055B4389A"></script>
 </head>
 
 
-<body  class="layout-fixed sidebar-expand-lg bg-body-tertiary app-loaded sidebar-collapse">
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary app-loaded sidebar-collapse">
 
     <div id="app" class="app-wrapper">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -84,7 +82,7 @@
             </div>
         </nav>
 
-        <main class="py-4">  
+        <main class="py-4">
             @yield('content')
         </main>
     </div>

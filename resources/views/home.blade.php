@@ -4,7 +4,7 @@
     <div class="container">
         <p class="d-inline-flex gap-1">
             <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-                aria-controls="collapseExample" onclick="init();">
+                aria-controls="collapseExample">
                 เปิดแผนที่
             </a>
             <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample2" role="button"
@@ -14,15 +14,16 @@
         </p>
     </div>
 
+
     <div class="collapse" id="collapseExample">
         <main class="app-main">
             <div class="app-content">
                 <div class="container-fluid">
-                   
+                    <map-component :police-area='{!! json_encode($policeArea) !!}' :crimes-case='{!! json_encode($geojson) !!}'>
+                    </map-component>
                 </div>
         </main>
-        <map-component :police-area='{!! json_encode($policeArea) !!}' :crimes-case='{!! json_encode($geojson) !!}'>
-        </map-component>
+
     </div>
 
     <div class="collapse" id="collapseExample2">

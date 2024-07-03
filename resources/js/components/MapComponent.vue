@@ -1,7 +1,7 @@
 <template>
     <div class="container" onload="init();">
         <controlpanel-component :content="content"> </controlpanel-component>
-        {{  content  }}
+        {{ content }}
         <div class="row justify-content-center">
             <div class="col-md">
                 <div class="card">
@@ -56,7 +56,7 @@ export default {
 
     methods: {
     }
-
+    
 }
 
 </script>

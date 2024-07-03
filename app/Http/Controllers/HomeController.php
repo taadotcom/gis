@@ -86,13 +86,10 @@ class HomeController extends Controller
 
     public function show($fileName)
     {
-        // dd($id);
 
         if (isset($fileName)) {
             return Storage::download('/docs/' . $fileName);
         }
-        // dd($contents);
-        // return response($contents, 200, ['']);
     }
 
     public function storeFile(Request $request)
