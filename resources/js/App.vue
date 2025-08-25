@@ -1,13 +1,20 @@
 <template>
-    <!-- <div id="app">
-        <h1>Welcome to GIS App</h1>
-    </div> -->
     <router-view />
 </template>
 
 <script>
+import Home from './pages/Home.vue';
+import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
+
 export default {
-    name: 'App'
+    name: 'App',
+    components: {
+        AppHeader,
+        AppFooter,
+        Home
+
+    }
 }
 </script>
 

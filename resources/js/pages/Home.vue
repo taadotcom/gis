@@ -1,52 +1,62 @@
 <template>
-
-<!-- Bootstrap Starter Template Example -->
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8 text-center">
-            <h2 class="mb-4">Bootstrap Starter Template</h2>
-            <p class="lead mb-4">
-                This is a simple Bootstrap starter template. Replace this section with your own content.
-            </p>
-            <a href="https://getbootstrap.com/" target="_blank" class="btn btn-primary">
-                Learn More
-            </a>
+    <AppHeader @scrollTo="scrollTo" />
+    <div class="max-w-3xl mx-auto p-4" id="about">
+        <div class="bg-white ">
+            <h2 class="text-xl font-bold mb-4 text-gray-800 text-center">ภารกิจหลักของเรา</h2>
         </div>
     </div>
-</div>
-
-
-    <div class="min-h-screen bg-gray-100">
-        <nav class="bg-white shadow">
-            <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-                <div class="text-xl font-bold text-blue-600">My SPA Website</div>
-                <div>
-                    <router-link to="/" class="text-gray-700 hover:text-blue-600 px-3">Home</router-link>
-                    <router-link to="/about" class="text-gray-700 hover:text-blue-600 px-3">About</router-link>
-                    <router-link to="/contact" class="text-gray-700 hover:text-blue-600 px-3">Contact</router-link>
+    <div class="container" ref="about">
+        <Carousel :value="messages" :numVisible="3" :numScroll="1" circular>
+            <template #item="slotProps">
+                <div class="border border-gray-300 rounded m-2 p-4">
+                    <p class="mb-4 font-medium text-center">
+                        {{ slotProps.data }}
+                    </p>
                 </div>
-            </div>
-        </nav>
-        <main class="container mx-auto px-4 py-10">
-            <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome to the SPA!</h1>
-            <p class="text-lg text-gray-600 mb-6">
-                This is a simple single-page application built with Vue and Tailwind CSS.
-            </p>
-            <button class="bg-blue-600 text-white px-6 py-2 rounded shadow hover:bg-blue-700 transition">
-                Get Started
-            </button>
-        </main>
-        <footer class="bg-white shadow mt-10">
-            <div class="container mx-auto px-4 py-4 text-center text-gray-500">
-                &copy; 2024 My SPA Website. All rights reserved.
-            </div>
-        </footer>
+            </template>
+        </Carousel>
     </div>
+
+    <AppFooter />
+
+
 </template>
 
+
+<script setup>
+
+const messages = [
+    "งานศึกษา วิเคราะห์ ออกแบบ พัฒนา ทดสอบ บำรุงรักษา ระบบสารสนเทศหลักของสำนักงานตำรวจแห่งชาติ งานสารสนเทศภูมิศาสตร์ สื่อประสมสารสนเทศ และระบบการประมวลผลข้อมูล เพื่อการนำเสนอในรูปแบบที่ทันสมัย",
+    "พัฒนา ปรับปรุง ผลผลิตข้อมูลจากระบบสารสนเทศหลัก ของสำนักงานตำรวจแห่งชาติ งานสารสนเทศภูมิศาสตร์ สื่อประสมสารสนเทศ ระบบบการประมวลผลผล ข้อมูลเพื่อการนำเสนอในรูปแบบที่ทันสมัย เพื่อใช้ในการบริหารองค์กร",
+    "ประมวลข้อเสนอแนะ ด้านการพัฒนาระบบสารสนเทศหลัก ของสำนักงานตำรวจแห่งชาติ งานสารสนเทศภูมิศาสตร์ สื่อประสมสารสนเทศ ระบบการประมวลผล ข้อมูลเพื่อการนำเสนอในรูปแบบที่ทันสมัย เพื่อปรับปรุง เปลี่ยนแปลงให้เหมาะสมกับสถานการณ์",
+    "ดูแลระบบสารสนเทศหลักของสำนักงานตำรวจแห่งชาติ งานสารสนเทศ ภูมิศาสตร์ สื่อประสมสารสนเทศ ระบบการประมวลผลข้อมูล เพื่อการนำเสนอในรูปแบบที่ทันสมัย ให้สามารถสนับสนุนการทำงานของหน่วยงานภายในเพื่อเพิ่มประสิทธิภาพการทำงานขององค์กร",
+    "พัฒนา ส่งสริมให้มีการสร้างองค์ความรู้ เพื่อรองรับกระบวนการจัดการ องค์ความรู้ให้เป็นมาตรฐานภายในองค์กร",
+    "ส่งเสริมและสนับสนุนการนำเทคโนโลยีสารสนเทศความมั่นคง ปลอดภัยด้านโปรแกรมประยุกต์เพื่อนำมาใช้ใด้อย่างเหมาะสม",
+    "ประสานงานกับหน่วยงานเทคโนโลยีสารสนเทศภายในองค์กร เพื่อสนับสนุนการทำงานเกี่ยวกับระบบสารสนเทศหลักของสำนักงานตำรวจแห่งชาติให้บรรลุเป้าหมาย",
+    "ให้คำปรึกษา แนะนำการใช้งาน ส่งเริมการเรียนรู้ การใช้เทศโมโลยี ที่เกี่ยวกับระบบสารสนเทศหลักของสำนักงานตำรวจแห่งชาติ งานสารสนเทศภูมิศาสตร์ สื่อประสมสารสนเทศ ระบบการประมวลผลข้อมูล เพื่อการนำเสนอในรูปแบบที่ทันสมัยให้กับหน่วยงานภายในองค์กร",
+    "ปฏิบัติงานร่วมกับหรือสนับสนุนการปฏิบัติงานของหน่วยงานอื่น ที่เกี่ยวข้องหรือที่ได้รับมอบหมาย"
+]
+
+</script>
+
 <script>
+import AppHeader from '../components/AppHeader.vue';
+import AppFooter from '../components/AppFooter.vue';
+
 export default {
     name: 'HomeComponent',
+    components: {
+        AppHeader,
+        AppFooter
+    },
+    methods: {
+        scrollTo(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }
 };
 </script>
 
