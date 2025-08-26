@@ -19,8 +19,8 @@ export default {
 </script>
 
 <style scoped>
+
 #app {
-    font-family: Arial, sans-serif;
     padding: 2rem;
     text-align: center;
 }
